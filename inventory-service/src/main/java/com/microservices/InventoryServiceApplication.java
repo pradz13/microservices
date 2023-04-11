@@ -14,7 +14,8 @@ public class InventoryServiceApplication {
 		SpringApplication.run(InventoryServiceApplication.class, args);
 	}
 
-	@Bean
+	//Use this to insert data
+	/*@Bean
 	public CommandLineRunner loadData(InventoryRepository inventoryRepository) {
 		return args -> {
 			Inventory inventory1 = new Inventory();
@@ -28,5 +29,5 @@ public class InventoryServiceApplication {
 			inventoryRepository.save(inventory1);
 			inventoryRepository.save(inventory2);
 		};
-	}
+	}*/
 }
