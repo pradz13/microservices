@@ -50,7 +50,11 @@ public class OrderService {
                 .bodyToMono(InventoryResponse[].class)
                 .block();
 
-        boolean allProductsInStock = Arrays.stream(Objects.requireNonNull(inventoryResponseArray)).allMatch(InventoryResponse::isInStock);
+        boolean allProductsInStock = false;
+        if(inventoryResponseArray != null && inventoryResponseArray.length > 0) {
+            allProductsInStock = Arrays.stream(inventoryResponseArray).allMatch(InventoryResponse::isInStock);
+        }
+
         if(allProductsInStock)
             orderRepository.save(order);
         else
